@@ -1,2 +1,2 @@
 # tech-talk-per-month
-The every month tach talk for our team.
+The every month tech talk for our team.
