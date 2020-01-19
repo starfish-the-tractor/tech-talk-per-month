@@ -1,7 +1,7 @@
 # tech-talk-per-month
 拖拉机:tractor:海星的每月技术交流会:speech_balloon:
 
-[:book:完整目录](Cotents.md)
+[:book:完整目录](Contents.md)
 
 ## 本月分享内容
 
