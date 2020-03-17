@@ -245,11 +245,34 @@ sys.stdout = out
 
 1. 生成器和迭代器
 
-   `yield`   `next`   `send`
+   `yield`   `next`  
+
+   适用于列表中元素较大，比方说图片集中的一个图片，可以降低运行时的开销。next函数每次返回下一个元素，并记住当前访问位置，是一个单例。当访问至末尾时会抛出StopIteration异常，配合一场捕捉和循环语法可以以较小开销访问大元素列表。
+
+   ```python
+   def foo():
+   	for i in i_iter:
+     	yield i
+       
+   gen = foo()			# gen is a generator object
+   x = next(gen)		# x is a element of i_iter
+   ```
+   
 
 2. 列表生成器
 
    `[exp for iter_var in iterable if_exp]`
+
+   可用于替代以下结构，运行效率较高，某些情况可以达到10倍的差距，但不合适数据量非常大的情况，这会在存储上带来不必要的开销，得不偿失。
+
+   ```python
+   a = [ ]
+   for i in i_iter:
+     for j in j_iter:
+       if condition_c:
+         a.append(something) 
+   ```
+
 
 ## 机器学习初探
 
