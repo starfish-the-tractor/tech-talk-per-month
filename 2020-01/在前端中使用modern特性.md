@@ -16,71 +16,70 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 [@azurity](https://github.com/azurity)
 
 <slide/>
-{data-step-count=3}
 
 # {一|wàn}{切|è}{之|zhī}{始|yuán}
 
 - ### {ECMAScript|JavaScript} 6
-    :::div{.animate-step .zoomIn .fast data-step=1}
+
     > 参见:[ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
     > 
     到2012年为止，所有的浏览器均已支持ES5.1，ES终于消除了历史遗留问题。
     2015年ES2015发布，之后开启了ES每年一个版本的快速发展期。
     实际上，并不存在真正的一个ES6，ES6只是ES5.1之后迭代更新的语言的代名词。
     称之为`ES Next`也不过分。
-    :::
+    
 - ### HTML 5
-    :::div{.animate-step .zoomIn .fast data-step=2}
+
     > 参见:[HTML](https://html.spec.whatwg.org/multipage/)
     > 
     W3C和WHATWG在漫长的斗争之后（实际上就是标准委员会及各个浏览器厂商之间的斗争），终于联手开始推进HTML标准，
     即HTML5（实际上2019年才签订谅解备忘录）。然后HTML也搞起了实时更新，每个功能模块的更新是独立进行的。
-    :::
+
 - ### CSS 3
-    :::div{.animate-step .zoomIn .fast data-step=3}
+
     > 参见:[CSS](https://www.w3.org/Style/CSS/#specs)
     > 
     CSS实际上也是各个模块分别进行推进的，CSS3永远是未完成的标准，每年都有新的特性加入CSS标准。
-    :::
+
 {.flexblock .clients}
 
 <slide/>
 {data-step-count=4}
 
-#### 考虑到以上事实{.animate-step .zoomIn .fast data-step=1}
+#### 考虑到以上事实
 
-#### 每一个技术都是模块化的{.animate-step .zoomIn .fast data-step=2}
+#### 每一个技术都是模块化的
 
-#### 意味着每个浏览器都会支持一组截然不同的特性集{.animate-step .zoomIn .fast data-step=3}
+#### 意味着每个浏览器都会支持一组截然不同的特性集
 
-#### 你真的可能适配的过来吗？{.animate-step .zoomIn .fast data-step=4}
+#### 你真的可能适配的过来吗？
 
-==这就是在前端使用modern特性的巨大问题=={.animate-step .zoomIn .fast data-step=4}
+==这就是在前端使用modern特性的巨大问题==
 
 <slide/>
-{data-step-count=9}
+
 
 因此，大量杂七杂八的`utility`开始出现
 
-- [新的编程语言/方言]{.animate-step .zoomIn .fast data-step=1}
-- [用于语言特性回退的`polyfill`]{.animate-step .zoomIn .fast data-step=2}
-- [用于处理语言特性回退的编译器]{.animate-step .zoomIn .fast data-step=3}
-- [用于其他特性回退的`polyfill`]{.animate-step .zoomIn .fast data-step=4}
-- [用于将这些`polyfill`和浏览器支持特性匹配的工具`browserslist`]{.animate-step .zoomIn .fast data-step=5}
-- [用于组织这些工作有序进行的脚手架]{.animate-step .zoomIn .fast data-step=6}
-- [用于将结果整合的打包工具]{.animate-step .zoomIn .fast data-step=7}
-- [用于安装以上工具的包管理器]{.animate-step .zoomIn .fast data-step=8}
+- [新的编程语言/方言]
+- [用于语言特性回退的`polyfill`]
+- [用于处理语言特性回退的编译器]
+- [用于其他特性回退的`polyfill`]
+- [用于将这些`polyfill`和浏览器支持特性匹配的工具`browserslist`]
+- [用于组织这些工作有序进行的脚手架]
+- [用于将结果整合的打包工具]
+- [用于安装以上工具的包管理器]
 
-**这些均是前端工程化的组成部分，也是在前端使用modern特性的基础**{.animate-step .zoomIn .fast data-step=9}
+**这些均是前端工程化的组成部分，也是在前端使用modern特性的基础**
 
 <slide/>
-{data-step-count=1}
 
-#### **不过本次的内容不是介绍前端工程化👻**{.animate-step .zoomOut .fast data-step=1}
 
-# 有趣的modern特性{.animate-step .zoomIn .fast data-step=1}
+#### **不过本次的内容不是介绍前端工程化👻**
 
-> 先假设所有特性都已经能用了😆{.animate-step .zoomIn .fast data-step=1 .gray}
+# 有趣的modern特性
+
+> 先假设所有特性都已经能用了😆
 
 > 
 
@@ -93,13 +92,10 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 **先从不modern的讲起**
 
 <slide/>
-{data-step-count=5}
+
 
 #### 各种异步:`Promise`,`generator-yeild`,`async-await`
 
-::::::div{style="display:flex;height:80vh"}
-::::div{.animate-step .zoomOut .fast data-step=2 style="position:absolute;width:100%"}
-:::div{.animate-step .zoomIn .fast data-step=1}
 ```js
 // classical
 a({/*arguments*/}, function () {
@@ -113,11 +109,7 @@ a({/*arguments*/}, function () {
 })
 ```
 **THE CALLBACK HALL**
-:::
-::::
 
-::::div{{.animate-step .zoomOut .fast data-step=3 style="position:absolute;width:100%"}
-:::div{.animate-step .zoomIn .fast data-step=2}
 ```js
 // promise style
 new Promise(a(/*argmunents*/))
@@ -132,12 +124,7 @@ new Promise(a(/*argmunents*/))
     /*& so on.*/
 ```
 **CHAIN IS OK, BUT**
-:::
-::::
 
-:::::div{{.animate-step .zoomOut .fast data-step=4 style="position:absolute;width:100%"}
-::::div{.animate-step .zoomIn .fast data-step=3}
-:::div{style="display:flex;flex-direction:row"}
 ```js
 // generator like
 function* gen() {
@@ -164,13 +151,9 @@ function* gen() {
     }
 })(gen)
 ```
-:::
-**WRITE AS SYNC, AND COMPLEX**
-::::
-:::::
 
-::::div{{.animate-step .zoomOut .fast data-step=5 style="position:absolute;width:100%"}
-:::div{.animate-step .zoomIn .fast data-step=4}
+**WRITE AS SYNC, AND COMPLEX**
+
 ```js
 // async like
 async function () {
@@ -183,18 +166,12 @@ async function () {
 }
 ```
 **最佳实践**
-:::
-::::
-::::::
 
 <slide/>
-{data-step-count=3}
+
 
 #### 来自标准委员会的模块化方案: ES module
 
-:::::div{style="display:flex;height:80vh"}
-::::div{{.animate-step .zoomOut .fast data-step=2 style="position:absolute;width:100%"}
-:::div{.animate-step .zoomIn .fast data-step=1}
 **各种传统方案**
 ```js
 //CommonJS
@@ -218,10 +195,7 @@ define('b', ['a'], function(require, exports, module) {
     module.exports = b
 })
 ```
-:::
-::::
-::::div{{.animate-step .zoomOut .fast data-step=3 style="position:absolute;width:100%"}
-:::div{.animate-step .zoomIn .fast data-step=2}
+
 **ES module**
 ```js
 //
@@ -234,9 +208,6 @@ import('c').then((c) => {
     /*do sth.*/
 })
 ```
-:::
-::::
-:::::
 
 <slide/>
 
@@ -272,7 +243,7 @@ let c = a?.b?.c?.d ?? 'default'
 
 [Web API 列表](https://developer.mozilla.org/en-US/docs/Web/API#Specifications)
 
-[我只讲几个{有趣的|我会的}]{.gray}
+[我只讲几个{有趣的|我会的}]
 
 <slide/>
 
@@ -303,63 +274,48 @@ let c = a?.b?.c?.d ?? 'default'
 
 # 组成部分
 
-::::grid
-:::column
 #### Custom Element
 - 用户定义元素(<my-element/>)
 - 行为和原生元素相似
 - web components的基础
-:::
-:::column
+
 #### Shadow DOM
 - 元素的DOM与文档DOM分离
 - 自定义组件保证一致效果的必备之选
-:::
-:::column
+
 #### HTML template
 - 将文档作为模板，从模板构建实例
 - 可以用作web component的视觉表达方式
-:::
-::::
+
 
 **然而，import html特性已经不在支持，因此，为了组件的分离，还是需要通过一些框架来简化工作的**
 
 <slide/>
 
-::::grid
-:::column
 **一些框架**
 - [polymer 3.0](https://polymer-library.polymer-project.org/3.0/docs/about_30): Google推出的框架(不推荐)
 - [Lit-Element](https://lit-element.polymer-project.org/): 同一个团队的新框架，轻量级
 - [stencil](https://stenciljs.com/)
 - [slim.js](https://slimjs.com/#/getting-started)
 - [vaadin](https://vaadin.com/)(你甚至又可以用Java写前端了)
-:::
-:::column
+
 **一些实践方案**
 - [webcomponents](https://www.webcomponents.org/) 组件集合站
 - [open-wc](https://open-wc.org/) 实践方案
 - [vaddin](https://vaadin.com/) vaddin的整套解决方案
-:::
-::::
 
 <slide/>
 
 # PWA
 
-::::grid
-:::column
 #### Service Worker
 - PWA可以离线运行的根本
 - 接管了访问请求
 - 没啥复杂功能，Google的默认配置就很好
 - [Workbox](https://developers.google.cn/web/tools/workbox/modules?hl=en)
-:::
-:::column
+
 #### Web manifest
 - 配置文件，为PWA提供辅助信息
-:::
-::::
 
 <slide/>
 
@@ -418,7 +374,7 @@ let c = a?.b?.c?.d ?? 'default'
 
 - [APlayer](https://aplayer.js.org/): 音频播放器，界面美观，支持歌词
 - [DPlayer](http://dplayer.js.org/): 视频播放器，界面美观，支持弹幕
-- [我会跟你讲上面两个作者是同一个人？]{.gray}[@DIYgod](https://github.com/DIYgod){.gray}
+- [我会跟你讲上面两个作者是同一个人？][@DIYgod](https://github.com/DIYgod){.gray}
 - [同一个组织开发的一些其他的播放器](https://github.com/MoePlayer)
 
 <slide/>
@@ -442,9 +398,7 @@ let c = a?.b?.c?.d ?? 'default'
 
 # 其他的一些API
 
-:::p
-> [我不会，我不讲，我就说说😈]{.gray}
-:::
+> [我不会，我不讲，我就说说😈]
 
 - IndexedDB: 真·前端数据库
 - Push API: 推送，配合PWA/service wroker使用
